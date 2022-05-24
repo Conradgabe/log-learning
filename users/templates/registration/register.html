@@ -1,0 +1,19 @@
+{% block content %}
+<p>
+    <a href="{% url 'learning_logs:index' %}">Learning_log</a> - 
+    <a href="{% url 'learning_logs:topics' %}">Topics</a> - 
+
+    {% if user.is_authenticated %}
+        {{user.username}} - 
+    {% else %}
+    <a href="{% url 'users:login' %}">Log in</a>
+    {% endif %}
+</p>
+
+<form action="{% url 'users:register' %}" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Register</button>
+    <input type="hidden" name="next" value="{% url 'learning_logs:index' %}">
+</form>
+{% endblock content %}

@@ -1,0 +1,7 @@
+{% block content %}
+<p> 
+    <a href="{% url 'learning_logs:index' %}">Learning_log</a> - 
+    <a href="{% url 'learning_logs:topics' %}">Topics</a>
+</p>
+<p>You have successfully log out. <a href="{% url 'users:login' %}">Login</a></p>
+{% endblock content %}
